@@ -16,10 +16,11 @@ function skriv_de_satans_øl_data_ind_arne (beer) {
   document.querySelectorAll('#beer-info .level p.title')[0].innerText = beer.alkohol.toFixed(1) + '%';
   document.querySelectorAll('#beer-info .level p.title')[1].innerText = beer.cl.toFixed(0);
 
-  document.querySelector('#beer-info .icon-rating.snowflakes span').style.width = (beer.rating16 * 20) + '%';
-  document.querySelector('#beer-info .icon-rating.gifts span').style.width = (beer.rating15 * 20) + '%';
-  document.querySelector('#beer-info .icon-rating.trees span').style.width = (beer.rating14 * 20) + '%';
-
+  if (beer.rating16) {
+    document.querySelector('#beer-info .icon-rating.snowflakes span').style.width = (beer.rating16 * 20) + '%';
+    document.querySelector('#beer-info .icon-rating.gifts span').style.width = (beer.rating15 * 20) + '%';
+    document.querySelector('#beer-info .icon-rating.trees span').style.width = (beer.rating14 * 20) + '%';
+  }
   //todo
   document.querySelector('#beer-info').style.opacity = 1;
 }
